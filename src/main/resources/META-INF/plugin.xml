@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idea-plugin>
+    <id>de.sitti.dtosettergenerator</id>
+    <name>DTO Setter Generator</name>
+    <vendor email="your.email@example.com" url="http://www.example.com">Your Company</vendor>
+
+    <description><![CDATA[
+        A plugin that generates setter method calls for DTO class instances.
+        Right-click on a variable of DTO type, select the "Generate Setter Methods Below"
+        action from the Editor popup menu to generate all setter method calls for the instance.
+    ]]></description>
+
+    <!-- Aktualisierte Version-Kompatibilität -->
+    <idea-version since-build="241" until-build="252.*"/>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <actions>
+        <!-- Registrieren im Generate-Menü -->
+        <action id="DtoSetterGenerator.GenerateSetters"
+                class="de.sitti.dtosettergenerator.GenerateSettersAction"
+                text="Generate Setter Methods Below"
+                description="Generate all setter methods for a DTO instance">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+
+        <!-- Zusätzlich im Editor-Kontext-Menü registrieren -->
+        <action id="DtoSetterGenerator.GenerateSettersContext"
+                class="de.sitti.dtosettergenerator.GenerateSettersAction"
+                text="Generate Setter Methods Below"
+                description="Generate all setter methods for a DTO instance">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+
+        <!-- Optional: Eigenes Menü mit Tastaturkürzel -->
+        <action id="DtoSetterGenerator.GenerateSettersShortcut"
+                class="de.sitti.dtosettergenerator.GenerateSettersAction"
+                text="Generate DTO Setters"
+                description="Generate all setter methods for a DTO instance">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt shift D"/>
+        </action>
+    </actions>
+</idea-plugin>

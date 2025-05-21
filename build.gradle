@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '1.15.0'
+}
+
+group 'de.sitti'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+// Configure Gradle IntelliJ Plugin
+// Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
+intellij {
+    version = '2024.1' // Aktualisiert auf eine neuere Version
+    type = 'IC' // Target IDE Platform (IntelliJ IDEA Community Edition)
+    plugins = ['com.intellij.java']
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
+
+patchPluginXml {
+    sinceBuild = '241' // Aktualisiert auf aktuelle Version
+    untilBuild = '252.*' // Erlaubt Kompatibilität mit zukünftigen Versionen
+}
+
+signPlugin {
+    certificateChain = System.getenv('CERTIFICATE_CHAIN')
+    privateKey = System.getenv('PRIVATE_KEY')
+    password = System.getenv('PRIVATE_KEY_PASSWORD')
+}
+
+publishPlugin {
+    token = System.getenv('PUBLISH_TOKEN')
+}
