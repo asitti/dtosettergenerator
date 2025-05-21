@@ -5,9 +5,10 @@
     <vendor email="your.email@example.com" url="http://www.example.com">Your Company</vendor>
 
     <description><![CDATA[
-        A plugin that generates setter method calls for DTO class instances.
-        Right-click on a variable of DTO type, select the "Generate Setter Methods Below"
-        action from the Editor popup menu to generate all setter method calls for the instance.
+       Ein Plugin, das Setter-Methodenaufrufe für DTO-Klasseninstanzen generiert.
+Klicken Sie mit der rechten Maustaste auf eine Variable vom DTO-Typ und wählen Sie die Aktion
+"Setter-Methoden darunter generieren" aus dem Editor-Popup-Menü, um alle Setter-Methodenaufrufe
+für die Instanz zu generieren.
     ]]></description>
 
     <!-- Aktualisierte Version-Kompatibilität -->
